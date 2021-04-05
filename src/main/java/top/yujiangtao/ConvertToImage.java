@@ -22,12 +22,12 @@ public class ConvertToImage {
     /**
      * 加载配置文件
      */
-    private static Properties config;
+    private static final Properties CONFIG;
 
     static {
-        config = new Properties();
+        CONFIG = new Properties();
         try {
-            config.load(ConvertToImage.class.getClassLoader().getResourceAsStream("convertConfig"));
+            CONFIG.load(ConvertToImage.class.getClassLoader().getResourceAsStream("convertConfig"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -36,12 +36,12 @@ public class ConvertToImage {
     /**
      * 视频路径
      */
-    private static final String VIDEO_PATH = config.getProperty("video.path");
+    private static final String VIDEO_PATH = CONFIG.getProperty("video.path");
 
     /**
      * 图片存放路径
      */
-    private static final String IMAGE_SAVE_PATH = config.getProperty("image.save.path");
+    private static final String IMAGE_SAVE_PATH = CONFIG.getProperty("image.save.path");
 
     public static void videoToFramers(String videoName) {
         // 标记
